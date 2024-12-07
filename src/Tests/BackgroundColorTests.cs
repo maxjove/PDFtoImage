@@ -1,41 +1,31 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SkiaSharp;
-using System;
 using System.IO;
 using static PDFtoImage.Conversion;
 using static PDFtoImage.Tests.TestUtils;
 
-namespace Tests
+namespace PDFtoImage.Tests
 {
     [TestClass]
-    public class BackgroundColorTests
+    public class BackgroundColorTests : TestBase
     {
-        [TestInitialize]
-        public void Initialize()
-        {
-#if NET6_0_OR_GREATER
-            if (!OperatingSystem.IsWindows() && !OperatingSystem.IsLinux() && !OperatingSystem.IsMacOS())
-                Assert.Inconclusive("This test must run on Windows, Linux or macOS.");
-#endif
-        }
-
         [TestMethod]
         [DataRow(null, DisplayName = "Default (White)")]
-        [DataRow((uint)0xFFFFFFFF, DisplayName = "White")]
+        [DataRow(0xFFFFFFFF, DisplayName = "White")]
         [DataRow((uint)0x64FFFFFF, DisplayName = "White (100 alpha)")]
-        [DataRow((uint)0xFFFF0000, DisplayName = "Red")]
+        [DataRow(0xFFFF0000, DisplayName = "Red")]
         [DataRow((uint)0x64FF0000, DisplayName = "Red (100 alpha)")]
-        [DataRow((uint)0xFF00FF00, DisplayName = "Green")]
+        [DataRow(0xFF00FF00, DisplayName = "Green")]
         [DataRow((uint)0x6400FF00, DisplayName = "Green (100 alpha)")]
-        [DataRow((uint)0xFF0000FF, DisplayName = "Blue")]
+        [DataRow(0xFF0000FF, DisplayName = "Blue")]
         [DataRow((uint)0x640000FF, DisplayName = "Blue (100 alpha)")]
-        [DataRow((uint)0xFFFFFF00, DisplayName = "Yellow")]
+        [DataRow(0xFFFFFF00, DisplayName = "Yellow")]
         [DataRow((uint)0x64FFFF00, DisplayName = "Yellow (100 alpha)")]
-        [DataRow((uint)0xFFFF00FF, DisplayName = "Magenta")]
+        [DataRow(0xFFFF00FF, DisplayName = "Magenta")]
         [DataRow((uint)0x64FF00FF, DisplayName = "Magenta (100 alpha)")]
-        [DataRow((uint)0xFF00FFFF, DisplayName = "Cyan")]
+        [DataRow(0xFF00FFFF, DisplayName = "Cyan")]
         [DataRow((uint)0x6400FFFF, DisplayName = "Cyan (100 alpha)")]
-        [DataRow((uint)0xFF000000, DisplayName = "Black")]
+        [DataRow(0xFF000000, DisplayName = "Black")]
         [DataRow((uint)0x64000000, DisplayName = "Black (100 alpha)")]
         [DataRow((uint)0x00FFFFFF, DisplayName = "Transparent")]
         public void SaveJpegWithBackgroundColor(uint? backgroundColor)
@@ -55,21 +45,21 @@ namespace Tests
 
         [TestMethod]
         [DataRow(null, DisplayName = "Default (White)")]
-        [DataRow((uint)0xFFFFFFFF, DisplayName = "White")]
+        [DataRow(0xFFFFFFFF, DisplayName = "White")]
         [DataRow((uint)0x64FFFFFF, DisplayName = "White (100 alpha)")]
-        [DataRow((uint)0xFFFF0000, DisplayName = "Red")]
+        [DataRow(0xFFFF0000, DisplayName = "Red")]
         [DataRow((uint)0x64FF0000, DisplayName = "Red (100 alpha)")]
-        [DataRow((uint)0xFF00FF00, DisplayName = "Green")]
+        [DataRow(0xFF00FF00, DisplayName = "Green")]
         [DataRow((uint)0x6400FF00, DisplayName = "Green (100 alpha)")]
-        [DataRow((uint)0xFF0000FF, DisplayName = "Blue")]
+        [DataRow(0xFF0000FF, DisplayName = "Blue")]
         [DataRow((uint)0x640000FF, DisplayName = "Blue (100 alpha)")]
-        [DataRow((uint)0xFFFFFF00, DisplayName = "Yellow")]
+        [DataRow(0xFFFFFF00, DisplayName = "Yellow")]
         [DataRow((uint)0x64FFFF00, DisplayName = "Yellow (100 alpha)")]
-        [DataRow((uint)0xFFFF00FF, DisplayName = "Magenta")]
+        [DataRow(0xFFFF00FF, DisplayName = "Magenta")]
         [DataRow((uint)0x64FF00FF, DisplayName = "Magenta (100 alpha)")]
-        [DataRow((uint)0xFF00FFFF, DisplayName = "Cyan")]
+        [DataRow(0xFF00FFFF, DisplayName = "Cyan")]
         [DataRow((uint)0x6400FFFF, DisplayName = "Cyan (100 alpha)")]
-        [DataRow((uint)0xFF000000, DisplayName = "Black")]
+        [DataRow(0xFF000000, DisplayName = "Black")]
         [DataRow((uint)0x64000000, DisplayName = "Black (100 alpha)")]
         [DataRow((uint)0x00FFFFFF, DisplayName = "Transparent")]
         public void SavePngWithBackgroundColor(uint? backgroundColor)
@@ -89,21 +79,21 @@ namespace Tests
 
         [TestMethod]
         [DataRow(null, DisplayName = "Default (White)")]
-        [DataRow((uint)0xFFFFFFFF, DisplayName = "White")]
+        [DataRow(0xFFFFFFFF, DisplayName = "White")]
         [DataRow((uint)0x64FFFFFF, DisplayName = "White (100 alpha)")]
-        [DataRow((uint)0xFFFF0000, DisplayName = "Red")]
+        [DataRow(0xFFFF0000, DisplayName = "Red")]
         [DataRow((uint)0x64FF0000, DisplayName = "Red (100 alpha)")]
-        [DataRow((uint)0xFF00FF00, DisplayName = "Green")]
+        [DataRow(0xFF00FF00, DisplayName = "Green")]
         [DataRow((uint)0x6400FF00, DisplayName = "Green (100 alpha)")]
-        [DataRow((uint)0xFF0000FF, DisplayName = "Blue")]
+        [DataRow(0xFF0000FF, DisplayName = "Blue")]
         [DataRow((uint)0x640000FF, DisplayName = "Blue (100 alpha)")]
-        [DataRow((uint)0xFFFFFF00, DisplayName = "Yellow")]
+        [DataRow(0xFFFFFF00, DisplayName = "Yellow")]
         [DataRow((uint)0x64FFFF00, DisplayName = "Yellow (100 alpha)")]
-        [DataRow((uint)0xFFFF00FF, DisplayName = "Magenta")]
+        [DataRow(0xFFFF00FF, DisplayName = "Magenta")]
         [DataRow((uint)0x64FF00FF, DisplayName = "Magenta (100 alpha)")]
-        [DataRow((uint)0xFF00FFFF, DisplayName = "Cyan")]
+        [DataRow(0xFF00FFFF, DisplayName = "Cyan")]
         [DataRow((uint)0x6400FFFF, DisplayName = "Cyan (100 alpha)")]
-        [DataRow((uint)0xFF000000, DisplayName = "Black")]
+        [DataRow(0xFF000000, DisplayName = "Black")]
         [DataRow((uint)0x64000000, DisplayName = "Black (100 alpha)")]
         [DataRow((uint)0x00FFFFFF, DisplayName = "Transparent")]
         public void SaveWebpWithBackgroundColor(uint? backgroundColor)
